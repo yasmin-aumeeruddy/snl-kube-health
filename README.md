@@ -9,6 +9,11 @@ Let's begin by ensuring your Kubernetes environment is set up by running by exec
 
 `kubectl version`
 
+Clone the repository with the required configuration files by entering the following command in the terminal and then navigate to the correct directory:
+
+`git clone https://github.com/OpenLiberty/guide-kubernetes-microprofile-health.git`
+`cd guide-kubernetes-microprofile-health/finish`
+
 Now that you have your Kubernetes cluster up and running, you can deploy your microservices using the following command:
 
 `kubectl apply -f kubernetes.yaml`
@@ -25,4 +30,4 @@ For each deployment, you can find information relating to the readiness probe, p
 
 The Kubernetes readiness probes in these services are implemented using MicroProfile health. The two Docker images that are being used for this tutorial have classes annotated with `@Health` that are integrated with CDI. Run the following command to have a look inside one of the classes used in this tutorial. This is just a simple class that contains a method `setUnhealthy()` that will make the service unhealthy for 60 seconds that allows the tutorial to demonstrate how useful this can be with Kubernetes. Once you have run the following command and had a look at the code behind the service please move on to the next step.
 
-`cat guide-kubernetes-microprofile-health/finish/system/src/main/java/io/openliberty/guides/system/SystemReadinessCheck.java`
+`cat system/src/main/java/io/openliberty/guides/system/SystemReadinessCheck.java`
