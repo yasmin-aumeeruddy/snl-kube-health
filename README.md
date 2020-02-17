@@ -5,11 +5,9 @@ The online terminal is a pre-configured Linux environment that can be used as a 
 
 ## Deploy Java microservices
 
-Let's begin by ensuring your Kubernetes environment is set up by running. MiniKube will be set up in around about a minute once you see the following message in the terminal `Done! Thank you for using minikube!`. Now run the following command to double check MiniKube is deployed:
+Let's begin by ensuring your Kubernetes environment is set up by running by executing the following command in the terminal:
 
 `kubectl version`
-
-If the command returns the versions of your kubectl client and cluster, the environment is configured.  Otherwise, repeat the previous command until the command returns the versions.
 
 Now that you have your Kubernetes cluster up and running, you can deploy your microservices using the following command:
 
