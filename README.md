@@ -31,3 +31,27 @@ For each deployment, you can find information relating to the readiness probe, p
 The Kubernetes readiness probes in these services are implemented using MicroProfile health. The two Docker images that are being used for this tutorial have classes annotated with `@Health` that are integrated with CDI. Run the following command to have a look inside one of the classes used in this tutorial. This is just a simple class that contains a method `setUnhealthy()` that will make the service unhealthy for 60 seconds that allows the tutorial to demonstrate how useful this can be with Kubernetes. Once you have run the following command and had a look at the code behind the service please move on to the next step.
 
 `cat system/src/main/java/io/openliberty/guides/system/SystemReadinessCheck.java`
+
+Issue the following command to check the health of your pods:
+
+`kubectl get pods`
+
+The microservices are fully deployed and ready for requests when the `READY` column indicates 1/1 for each deployment. Repeat the previous command until all deployments are ready before continuing. Now that your microservices are deployed and running, you are ready to send some requests.
+
+Firstly check the IP address of your Kubernetes cluster by running the following command:
+
+minikube ip{{execute}}
+
+You need to set the variable IP to the IP address of your Kubernetes cluster by running the following command:
+
+IP=$(minikube ip){{execute}}
+
+When you run the following command it will use the IP address of your cluster (This may take several minutes).
+
+`curl http://$IP:31000/api/name`
+
+You should see a response similar to the following:
+
+`Hello! I'm container [container name]`
+
+Similarly, navigate to `curl http://$IP:32000/api/ping/name-service` and observe a response with the content pong.
