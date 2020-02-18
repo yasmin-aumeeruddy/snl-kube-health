@@ -41,11 +41,11 @@ The microservices are fully deployed and ready for requests when the `READY` col
 
 Firstly check the IP address of your Kubernetes cluster by running the following command:
 
-minikube ip{{execute}}
+COMMAND HERE
 
 You need to set the variable IP to the IP address of your Kubernetes cluster by running the following command:
 
-IP=$(minikube ip){{execute}}
+COMMAND HERE
 
 When you run the following command it will use the IP address of your cluster (This may take several minutes).
 
