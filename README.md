@@ -57,7 +57,7 @@ To find the IP addresses required to access the services, use the following comm
 
 `kubectl describe pods`
 
-This command shows the details for both pods. The IP addresses for the nodes that the pods are deployed on are listed in the output. Look for the IP address that is stated next to the label `Node:` for each pod. In this case, the IP address would be `10.114.85.172` for the name deployment and `10.114.85.161` for the ping deployment. 
+This command shows the details for both pods. The IP addresses for the nodes that the pods are deployed on are listed in the output. Look for the IP address that is stated next to the label `Node:` for each pod. For example, n this case, the IP address would be `10.114.85.172` for the name deployment and `10.114.85.161` for the ping deployment. 
 
 ```
 Name:           name-deployment-855f7d4b98-77qgl
