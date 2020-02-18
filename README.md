@@ -99,7 +99,7 @@ Similarly, navigate to `curl http://$pingIP:$pingPort/api/ping/name-service` and
 
 Now that your microservices are up and running and you have made sure that your requests are working, we can monitor the microservices’ health. Let’s start by making one of our microservices unhealthy. To do this, you need to make a POST request to a specific URL endpoint provided by the MicroProfile specification, which allows you to make a service unhealthy:
 
-`curl -X POST http://$IP:31000/api/name/unhealthy`
+`curl -X POST http://$nameIP:$namePort/api/name/unhealthy`
 
 If you now check the health of your pods you should notice it is not ready as shown by `0/1`.
 
