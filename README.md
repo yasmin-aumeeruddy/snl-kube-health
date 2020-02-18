@@ -33,29 +33,67 @@ The Kubernetes readiness probes in these services are implemented using MicroPro
 
 `cat system/src/main/java/io/openliberty/guides/system/SystemReadinessCheck.java`
 
-Issue the following command to check the health of your pods:
-
-`kubectl get pods`
-
 The microservices are fully deployed and ready for requests when the `READY` column indicates 1/1 for each deployment. Repeat the previous command until all deployments are ready before continuing. Now that your microservices are deployed and running, you are ready to send some requests.
 
-Firstly check the IP address of your Kubernetes cluster by running the following command:
+Firstly check the node ports by running the following command in the terminal:
 
-COMMAND HERE
+`kubectl get services` 
 
-You need to set the variable IP to the IP address of your Kubernetes cluster by running the following command:
+There are two ports specified under the `Port(s)` collumn for each service and they are shown as `{target port}/{node port}/TCP`, for example, `9080:31006/TCP` where 9080 is the target port and 31006 is the node port. Take note of each node port shown from the command.
 
-COMMAND HERE
+Set the `namePort` and `pingPort` variables to the correct node ports for each service:
+
+`namePort={port}`
+and 
+`pingPort={port}`
+
+Check that they have been set correctly: 
+
+`echo $namePort && echo $pingPort`
+
+You should see an output consisting of both node ports. 
+
+To find the IP addresses required to access the services, use the following command:
+
+`kubectl describe pods`
+
+This command shows the details for both pods. The IP addresses for the nodes that the pods are deployed on are listed in the output. Look for the IP address that is stated next to the label `Node:` for each pod. In this case, the IP address would be `10.114.85.172` for the name deployment and `10.114.85.161` for the ping deployment. 
+
+```
+Name:           name-deployment-855f7d4b98-77qgl
+Namespace:      sn-labs-yasminaumeer
+Priority:       0
+Node:           10.114.85.172/10.114.85.172
+Start Time:     Tue, 18 Feb 2020 14:15:42 +0000
+...
+Name:           ping-deployment-5bb7ff78cf-s88w4
+Namespace:      sn-labs-yasminaumeer
+Priority:       0
+Node:           10.114.85.161/10.114.85.161
+Start Time:     Tue, 18 Feb 2020 14:15:42 +0000
+...
+```
+
+Like you did with the node ports, set the `nameIP` and `pingIP` variables to the right IP addresses for the services:
+
+`nameIP={IP address}`
+`pingIP={IP address}`
+
+Check that they have been set correctly: 
+
+`echo $nameIP && echo $pingIP`
+
+You should see an output consisting of both IP addresses.
 
 When you run the following command it will use the IP address of your cluster (This may take several minutes).
 
-`curl http://$IP:31000/api/name`
+`curl http://$nameIP:$namePort/api/name`
 
 You should see a response similar to the following:
 
 `Hello! I'm container [container name]`
 
-Similarly, navigate to `curl http://$IP:32000/api/ping/name-service` and observe a response with the content pong.
+Similarly, navigate to `curl http://$pingIP:$pingPort/api/ping/name-service` and observe a response with the content pong.
 
 ## Turn one of your Microservices Unhealthy
 
