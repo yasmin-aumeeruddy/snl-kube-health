@@ -117,9 +117,9 @@ The unhealthy deployment should automatically recover after about 1 minute. Run 
 
 Once it has recovered you are going to make both demo pods unhealthy by making a POST request to each deployment.
 
-`curl -X POST http://$IP:31000/api/name/unhealthy`
+`curl -X POST http://$nameIP:$namePort/api/name/unhealthy`
 
-`curl -X POST http://$IP:31000/api/name/unhealthy`
+`curl -X POST http://$nameIP:$namePort/api/name/unhealthy`
 
  If the response from the second request has the same pod name as the first, wait 5 seconds and run the command again. This is because the readiness probe has not noticed the microservice has become unhealthy.
 
