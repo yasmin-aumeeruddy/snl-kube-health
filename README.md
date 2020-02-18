@@ -11,9 +11,9 @@ Let's begin by ensuring your Kubernetes environment is set up by running by exec
 
 Clone the repository with the required configuration files by entering the following command in the terminal and then navigate to the correct directory:
 
-`git clone https://github.com/OpenLiberty/guide-kubernetes-microprofile-health.git`
+`git clone https://github.com/yasmin-aumeeruddy/snl-kube-health.git`
 
-`cd guide-kubernetes-microprofile-health/finish`
+`cd snl-kube-health`
 
 Now that you have your Kubernetes cluster up and running, you can deploy your microservices using the following command:
 
