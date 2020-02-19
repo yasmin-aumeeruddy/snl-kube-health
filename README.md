@@ -131,7 +131,7 @@ Once it has recovered you are going to make both demo pods unhealthy by making a
 
  After a small amount of time, if you keep running the previous command you will notice the demo pods recover and change state to ready. Following this, the ping microservice will also become available after a short amount of time.
  
- ## Great Work! You're done!
+## Great Work! You're done!
 
 You have used MicroProfile Health to create an endpoint that reports on your Java microservice’s status. Then, you observed how Kubernetes uses the /health endpoint with the readiness probe to keep your microservices running smoothly.
 
