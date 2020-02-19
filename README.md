@@ -41,7 +41,7 @@ Firstly check the node ports by running the following command in the terminal:
 
 There are two ports specified under the **Port(s)** collumn for each service and they are shown as **{target port}/{node port}/TCP**, for example, **9080:31006/TCP** where 9080 is the target port and 31006 is the node port. Take note of each node port shown from the command.
 
-Set the `namePort` and `pingPort` variables to the correct node ports for each service:
+Set the **namePort** and **pingPort** variables to the correct node ports for each service:
 
 `namePort={port}`
 and 
@@ -101,7 +101,7 @@ Now that your microservices are up and running and you have made sure that your 
 
 `curl -X POST http://$nameIP:$namePort/api/name/unhealthy`
 
-If you now check the health of your pods you should notice it is not ready as shown by `0/1`.
+If you now check the health of your pods you should notice it is not ready as shown by **0/1**.
 
 `kubectl get pods`
 
@@ -111,7 +111,7 @@ Now if you send a request to the endpoint again you will notice it will not fail
 
 ## Test out the readiness Probe
 
-The unhealthy deployment should automatically recover after about 1 minute. Run the following command until you see the `READY` state return to `1/1`.
+The unhealthy deployment should automatically recover after about 1 minute. Run the following command until you see the **READY** state return to **1/1**.
 
 `kubectl get pods`
 
