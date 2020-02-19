@@ -107,7 +107,7 @@ If you now check the health of your pods you should notice it is not ready as sh
 
 Now if you send a request to the endpoint again you will notice it will not fail as your other microservice will now handle the request:
 
-`curl http://$IP:31000/api/name`
+`curl http://$nameIP:$namePort/api/name`
 
 ## Test out the readiness Probe
 
