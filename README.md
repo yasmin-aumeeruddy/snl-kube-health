@@ -19,9 +19,9 @@ Now that you have your Kubernetes cluster up and running, you can deploy your mi
 
 `kubectl apply -f kubernetes.yaml`
 
-While you are waiting for your services to start up, take a look at the provided kubernetes.yaml file that you have used to deploy your two Java microservices, by issuing the command below:
+While you are waiting for your services to start up, take a look at the provided kubernetes.yaml file that you have used to deploy your two Java microservices. 
 
-`cat kubernetes.yaml`
+`[File -> Open] snl-kube-health/kubernetes.yaml`
 
 Here you can see configuration for two deployments and two services. The first deployment **name-deployment** has two replicas which means it will have two pods running. We also specify the Docker image name and the container ports we would like to map outside the container, **9080**. This deployment contains a simple Java microservice that displays a brief greeting and the name of the container it runs in.
 
@@ -29,9 +29,9 @@ The second deployment **ping-deployment** does not specify any replicas as we on
 
 For each deployment, you can find information relating to the readiness probe, provided by Kubernetes, underneath the **readinessProbe** attribute. We have specified a delay of 15 seconds that will give the deployment sufficient time to start up. The polling period is set to 5 seconds so it will check the pods health every 5 seconds and if it gets one bad request it will mark that pod as unhealthy.
 
-The Kubernetes readiness probes in these services are implemented using MicroProfile health. The two Docker images that are being used for this tutorial have classes annotated with **@Health** that are integrated with CDI. Run the following command to have a look inside one of the classes used in this tutorial. This is just a simple class that contains a method **setUnhealthy()** that will make the service unhealthy for 60 seconds that allows the tutorial to demonstrate how useful this can be with Kubernetes. Once you have run the following command and had a look at the code behind the service please move on to the next step.
+The Kubernetes readiness probes in these services are implemented using MicroProfile health. The two Docker images that are being used for this tutorial have classes annotated with **@Health** that are integrated with CDI. Run the following command to have a look inside one of the classes used in this tutorial. This is just a simple class that contains a method **setUnhealthy()** that will make the service unhealthy for 60 seconds that allows the tutorial to demonstrate how useful this can be with Kubernetes. Once you have had a look at the code behind the service please move on to the next step.
 
-`cat finish/system/src/main/java/io/openliberty/guides/system/SystemReadinessCheck.java`
+`[File -> Open] snl-kube-health/finish/system/src/main/java/io/openliberty/guides/system/SystemReadinessCheck.java`
 
 The microservices are fully deployed and ready for requests when the **READY** column indicates 1/1 for each deployment. Repeat the previous command until all deployments are ready before continuing. Now that your microservices are deployed and running, you are ready to send some requests.
 
