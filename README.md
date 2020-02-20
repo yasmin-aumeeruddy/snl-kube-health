@@ -59,19 +59,20 @@ To find the IP addresses required to access the services, use the following comm
 
 This command shows the details for both pods. The IP addresses for the nodes that the pods are deployed on are listed in the output. Look for the IP address that is stated next to the label **Node:** for each pod. For example, in the following case, the IP address would be **10.114.85.172** for the name deployment and **10.114.85.161** for the ping deployment. 
 
-
-> Name:           name-deployment-855f7d4b98-77qgl
-> Namespace:      sn-labs-yasminaumeer
-> Priority:       0
-> Node:           10.114.85.172/10.114.85.172
-> Start Time:     Tue, 18 Feb 2020 14:15:42 +0000
-> ...
-> Name:           ping-deployment-5bb7ff78cf-s88w4
-> Namespace:      sn-labs-yasminaumeer
-> Priority:       0
-> Node:           10.114.85.161/10.114.85.161
-> Start Time:     Tue, 18 Feb 2020 14:15:42 +0000
-> ...
+```
+Name:           name-deployment-855f7d4b98-77qgl
+Namespace:      sn-labs-yasminaumeer
+Priority:       0
+Node:           10.114.85.172/10.114.85.172
+Start Time:     Tue, 18 Feb 2020 14:15:42 +0000
+...
+Name:           ping-deployment-5bb7ff78cf-s88w4
+Namespace:      sn-labs-yasminaumeer
+Priority:       0
+Node:           10.114.85.161/10.114.85.161
+Start Time:     Tue, 18 Feb 2020 14:15:42 +0000
+...
+```
 
 Like you did with the node ports, set the **nameIP** and **pingIP** variables to the right IP addresses for the services:
 
