@@ -13,7 +13,11 @@ Clone the repository with the required configuration files by entering the follo
 
 `git clone https://github.com/yasmin-aumeeruddy/snl-kube-health.git`
 
-`cd snl-kube-health`
+`cd snl-kube-health/finish`
+
+Build the applications by running the following command:
+
+`mvn clean package`
 
 Now that you have your Kubernetes cluster up and running, you can deploy your microservices using the following command:
 
