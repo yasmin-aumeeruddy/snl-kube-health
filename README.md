@@ -61,6 +61,8 @@ To find the IP addresses required to access the services, use the following comm
 
 `kubectl describe pods`
 
+*Note: to make your terminal full screen, double click the terminal heading
+
 This command shows the details for both pods. The IP addresses for the nodes that the pods are deployed on are listed in the output. Look for the IP address that is stated next to the label **Node:** for each pod. For example, in the following case, the IP address would be **10.114.85.172** for the name deployment and **10.114.85.161** for the ping deployment. 
 
 ```
@@ -115,9 +117,10 @@ Now if you send a request to the endpoint again you will notice it will not fail
 
 ## Test out the readiness Probe
 
-The unhealthy deployment should automatically recover after about 1 minute. Run the following command until you see the **READY** state return to **1/1**.
+The unhealthy deployment should automatically recover after about 30 seconds. Run the following command until you see the **READY** state return to **1/1**.
 
 `kubectl get pods`
+
 
 Once it has recovered you are going to make both demo pods unhealthy by making a POST request to each deployment.
 
