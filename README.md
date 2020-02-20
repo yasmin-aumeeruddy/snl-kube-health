@@ -31,7 +31,7 @@ For each deployment, you can find information relating to the readiness probe, p
 
 The Kubernetes readiness probes in these services are implemented using MicroProfile health. The two Docker images that are being used for this tutorial have classes annotated with **@Health** that are integrated with CDI. Run the following command to have a look inside one of the classes used in this tutorial. This is just a simple class that contains a method **setUnhealthy()** that will make the service unhealthy for 60 seconds that allows the tutorial to demonstrate how useful this can be with Kubernetes. Once you have had a look at the code behind the service please move on to the next step.
 
-> [File -> Open] snl-kube-health/finish/system/src/main/java/io/openliberty/guides/system/SystemReadinessCheck.java`
+> [File -> Open] snl-kube-health/finish/system/src/main/java/io/openliberty/guides/system/SystemReadinessCheck.java
 
 The microservices are fully deployed and ready for requests when the **READY** column indicates 1/1 for each deployment. Repeat the previous command until all deployments are ready before continuing. Now that your microservices are deployed and running, you are ready to send some requests.
 
@@ -59,7 +59,7 @@ To find the IP addresses required to access the services, use the following comm
 
 This command shows the details for both pods. The IP addresses for the nodes that the pods are deployed on are listed in the output. Look for the IP address that is stated next to the label **Node:** for each pod. For example, in the following case, the IP address would be **10.114.85.172** for the name deployment and **10.114.85.161** for the ping deployment. 
 
->
+
 > Name:           name-deployment-855f7d4b98-77qgl
 > Namespace:      sn-labs-yasminaumeer
 > Priority:       0
@@ -72,7 +72,6 @@ This command shows the details for both pods. The IP addresses for the nodes tha
 > Node:           10.114.85.161/10.114.85.161
 > Start Time:     Tue, 18 Feb 2020 14:15:42 +0000
 > ...
->
 
 Like you did with the node ports, set the **nameIP** and **pingIP** variables to the right IP addresses for the services:
 
